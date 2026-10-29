@@ -1,13 +1,12 @@
-software-fj-gestion-clientes-servicios-reservas/
-Sistema integral orientado a objetos para la gestión de clientes, servicios y reservas de Software FJ, con manejo avanzado de excepciones y registro de eventos.
+software-fj-gestion-clientes-servicios-reservas
 │
 ├── README.md
 ├── .gitignore
 │
-├── src/
+├── src
 │   ├── main.py
 │   │
-│   ├── modelos/
+│   ├── modelos
 │   │   ├── entidad.py
 │   │   ├── cliente.py
 │   │   ├── servicio.py
@@ -16,21 +15,22 @@ Sistema integral orientado a objetos para la gestión de clientes, servicios y r
 │   │   ├── asesoria.py
 │   │   └── reserva.py
 │   │
-│   ├── excepciones/
+│   ├── excepciones
 │   │   └── excepciones_personalizadas.py
 │   │
-│   ├── utilidades/
+│   ├── utilidades
 │   │   └── logger.py
 │   │
-│   └── pruebas/
+│   └── pruebas
 │       └── simulacion_operaciones.py
 │
-├── logs/
+├── logs
 │   └── sistema.log
 │
-├── docs/
-│   ├── evidencias/
-│   ├── diagrama_clases/
-│   └── documentacion/
-│
-└── requirements.txt
+└── docs
+    ├── evidencias
+    │   └── README.md
+    ├── diagrama_clases
+    │   └── README.md
+    └── documentacion
+        └── README.md
