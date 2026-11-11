@@ -1,57 +1,91 @@
-#  Nicolas Rico 
-# Importamos las clases que representan al cliente y al servicio
-from src.modelos.cliente import Cliente 
-from src.modelos.servicio import Servicio
+
+# Nicolas Rico
+# Gestion de reservas - Software FJ
+
 class Reserva:
     """
     Representa una reserva realizada por un cliente
     para utilizar un servicio de Software FJ.
     """
 
-def __init__(self, codigo, cliente, servicio, horas_reservadas):
-# Guardamos el código único de la reserva.
-    self.__codigo = codigo
+    def __init__(self, codigo, cliente, servicio, horas_reservadas):
 
-# Guardamos el cliente asociado a la reserva.
-    self.__cliente = cliente
+# Antes de crear la reserva, revisamos que los datos estén completos.
+        if not codigo or not str(codigo).strip():raise ValueError("El código de la reserva no puede estar vacío.")
 
-# Guardamos el servicio que se va a utilizar.
-    self.__servicio = servicio
+        if cliente is None:raise ValueError("La reserva debe tener un cliente asignado.")
+
+        if servicio is None:raise ValueError("La reserva debe tener un servicio asignado.")
+
+# Las horas deben ser un número mayor que cero.
+        if isinstance(horas_reservadas, bool) or not isinstance(horas_reservadas, (int, float)) or horas_reservadas <= 0:raise ValueError("Las horas reservadas deben ser un número mayor que cero.")
+        
+# Guardamos el codigo unico de la reserva.
+        self.__codigo = codigo
+
+# Guardamos el cliente asociado.
+        self.__cliente = cliente
+
+# Guardamos el servicio solicitado.
+        self.__servicio = servicio
 
 # Guardamos la cantidad de horas reservadas.
-    self.__horas_reservadas = horas_reservadas
+        self.__horas_reservadas = horas_reservadas
 
-# Toda reserva comienza pendiente de confirmación.
-    self.__estado = "Pendiente"
+# Toda reserva comienza pendiente de confirmacion.
+        self.__estado = "Pendiente"
 
 # Guardamos observaciones adicionales.
-    self.__observaciones = ""
-# consulta el código de la reserva.
-    @property
-    def codigo(self):
-        return self.__codigo
+        self.__observaciones = ""
 
-# consulta el cliente asociado.
+# Consultamos el codigo de la reserva.
     @property
-    def cliente_asignado(self):
-        return self.__cliente
+    def codigo(self):return self.__codigo
 
-# consulta el servicio solicitado.
+# Consultamos el cliente asociado.
     @property
-    def servicio_solicitado(self):
-        return self.__servicio
+    def cliente_asignado(self):return self.__cliente
 
-# consulta las horas reservadas.
+# Consultamos el servicio solicitado.
     @property
-    def horas_reservadas(self):
-        return self.__horas_reservadas
+    def servicio_solicitado(self):return self.__servicio
 
-# consulta el estado de la reserva.
+# Consultamos las horas reservadas.
     @property
-    def estado_actual(self):
-        return self.__estado
+    def horas_reservadas(self):return self.__horas_reservadas
 
-# consulta las observaciones.
+ # Consultamos el estado de la reserva.
     @property
-    def observaciones(self):
-        return self.__observaciones
+    def estado_actual(self): return self.__estado
+
+# Consultamos las observaciones.
+    @property
+    def observaciones(self):return self.__observaciones
+
+# Confirmamos una reserva pendiente.
+    def confirmar(self):
+        if self.__estado == "Pendiente":
+            self.__estado = "Confirmada"
+            return "Reserva confirmada correctamente."
+        else:return "No se puede confirmar esta reserva."
+
+# Cancelamos una reserva pendiente.
+    def cancelar(self):
+        if self.__estado == "Pendiente":
+            self.__estado = "Cancelada"
+            return "Reserva cancelada correctamente."
+        else:return "No se puede cancelar esta reserva."
+# Procesamos la reserva cuando ya ha sido confirmada.
+    def procesar(self):
+        if self.__estado == "Confirmada":
+            self.__estado = "Procesada"
+            return "Reserva procesada correctamente."
+        else:return "Solo se pueden procesar reservas confirmadas."
+# Agregamos una observación para dejar constancia de algún detalle.
+    def agregar_observacion(self, observacion):
+
+        if not observacion or not observacion.strip():return "La observación no puede estar vacía."
+
+        if self.__observaciones:self.__observaciones += " | " + observacion
+        else:self.__observaciones = observacion
+        return "Observación agregada correctamente."
