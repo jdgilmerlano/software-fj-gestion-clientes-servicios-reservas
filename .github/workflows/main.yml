@@ -21,5 +21,11 @@ jobs:
         with:
           python-version: "3.11"
 
+       - name: Ejecutar pruebas de excepciones
+        run: python -m src.pruebas.prueba_excepciones_logs
+      
+
+          
+
       - name: Ejecutar pruebas de excepciones
         run: python src/pruebas/prueba_excepciones_logs.py
