@@ -10,3 +10,16 @@ def probar_try_except():
 
 
 probar_try_except()
+
+def probar_try_except_else():
+    try:
+        numero = int("10")
+
+    except ValueError as error:
+        print(f"No se pudo convertir el valor: {error}")
+
+    else:
+        print(f"La conversión fue exitosa. El número es: {numero}")
+
+
+probar_try_except_else()
