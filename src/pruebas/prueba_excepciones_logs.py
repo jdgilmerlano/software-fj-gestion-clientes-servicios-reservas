@@ -51,8 +51,7 @@ def probar_encadenamiento():
         ) from error
 
 
-probar_encadenamiento()
-
-probar_encadenamiento()
-
-probar_encadenamiento()
+try:
+    probar_encadenamiento()
+except DatoInvalidoError as error:
+    print(f"Excepción controlada: {error}")
