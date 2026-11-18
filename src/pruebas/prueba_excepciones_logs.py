@@ -23,3 +23,17 @@ def probar_try_except_else():
 
 
 probar_try_except_else()
+
+def probar_try_except_finally():
+    try:
+        numero = int("abc")
+        print(f"El número es: {numero}")
+
+    except ValueError as error:
+        print(f"Se produjo un error: {error}")
+
+    finally:
+        print("La operación ha finalizado.")
+
+
+probar_try_except_finally()
