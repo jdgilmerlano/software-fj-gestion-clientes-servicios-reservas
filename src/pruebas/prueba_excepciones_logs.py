@@ -53,9 +53,6 @@ def probar_encadenamiento():
 
 probar_encadenamiento()
 
-        ) from error
-
 probar_encadenamiento()
-
 
 probar_encadenamiento()
