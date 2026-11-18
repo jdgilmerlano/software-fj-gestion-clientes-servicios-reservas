@@ -24,4 +24,7 @@ def registrar_error(mensaje):
 def registrar_advertencia(mensaje):
     """Registra una advertencia del sistema."""
     logging.warning(mensaje)
-  
+
+def registrar_excepcion(mensaje):
+    """Registra una excepción ocurrida en el sistema."""
+    logging.exception(mensaje)
