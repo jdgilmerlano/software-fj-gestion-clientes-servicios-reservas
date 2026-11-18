@@ -1,5 +1,7 @@
 # Prueba de manejo de excepciones - Compañero 4
 
+from src.excepciones.excepciones_personalizadas import DatoInvalidoError
+
 def probar_try_except():
     try:
         numero = int("abc")
@@ -37,3 +39,16 @@ def probar_try_except_finally():
 
 
 probar_try_except_finally()
+
+def probar_encadenamiento():
+    try:
+        valor = int("abc")
+    except ValueError as error:
+        raise DatoInvalidoError(
+            "El dato recibido no es válido."
+        ) from error
+
+probar_encadenamiento()
+
+
+probar_encadenamiento()
