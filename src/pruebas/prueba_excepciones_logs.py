@@ -1,6 +1,7 @@
 # Prueba de manejo de excepciones - Compañero 4
 
 from src.excepciones.excepciones_personalizadas import DatoInvalidoError
+from src.utilidades.logger import registrar_excepcion
 
 def probar_try_except():
     try:
@@ -44,8 +45,14 @@ def probar_encadenamiento():
     try:
         valor = int("abc")
     except ValueError as error:
+        registrar_excepcion("Se produjo un error al convertir el dato.")
         raise DatoInvalidoError(
             "El dato recibido no es válido."
+        ) from error
+
+
+probar_encadenamiento()
+
         ) from error
 
 probar_encadenamiento()
