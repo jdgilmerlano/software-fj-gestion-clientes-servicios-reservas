@@ -1,1 +1,21 @@
 Archivo de registro de eventos y errores.
+2026-11-11 19:46:27,030 - ERROR - Operación no permitida en la reserva R003: Solo se pueden procesar reservas confirmadas.
+Traceback (most recent call last):
+  File "C:\Users\moren\software-fj-gestion-clientes-servicios-reservas\src\modelos\reserva.py", line 191, in ejecutar_operacion
+    resultado = operacion()
+  File "C:\Users\moren\software-fj-gestion-clientes-servicios-reservas\src\modelos\reserva.py", line 134, in procesar
+    raise OperacionReservaError(
+        "Solo se pueden procesar reservas confirmadas."
+    )
+src.modelos.reserva.OperacionReservaError: Solo se pueden procesar reservas confirmadas.
+2026-11-11 19:46:27,032 - INFO - Finalizó el intento de operación para la reserva R003.
+2026-11-11 20:01:44,255 - ERROR - Operación no permitida en la reserva R003: Solo se pueden procesar reservas confirmadas.
+Traceback (most recent call last):
+  File "C:\Users\moren\software-fj-gestion-clientes-servicios-reservas\src\modelos\reserva.py", line 181, in ejecutar_operacion
+    resultado = operacion()
+  File "C:\Users\moren\software-fj-gestion-clientes-servicios-reservas\src\modelos\reserva.py", line 124, in procesar
+    raise OperacionReservaError(
+        "Solo se pueden procesar reservas confirmadas."
+    )
+src.modelos.reserva.OperacionReservaError: Solo se pueden procesar reservas confirmadas.
+2026-11-11 20:01:44,256 - INFO - Finalizó el intento de operación para la reserva R003.
